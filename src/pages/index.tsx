@@ -3,8 +3,11 @@ import Head from "next/head";
 import { text } from "stream/consumers";
 import { Button } from "~/components/ui/button"
 import { api } from "~/utils/api";
+import { useRouter } from 'next/router'
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <>
       <Head>
@@ -13,15 +16,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen min-w-screen flex-col items-center justify-center bg-gradient-to-b from-slate-300 to-slate-700 gap-10">
-        <div className="bg-slate-200 gap-40 flex flex-col p-6 justify-evenly items-center rounded sm:w-96 md:w-max lg:w-max h-max">
+        <div className="bg-slate-200 gap-20 flex flex-col p-6 justify-evenly items-center rounded sm:w-9/12 md:w-max lg:w-max h-max">
           <img rel="icon" src="/logo.png"></img>
           <div className="w-full flex items-center justify-center">
-            <div className="flex flex-col gap-24 justify-center items-center rounded w-11/12">
+            <div className="flex flex-col gap-20 justify-center items-center rounded w-11/12">
               <div className="bg-gradient-to-b from-slate-400 to bg-slate-300 w-full rounded flex justify-center items-center h-44 font-sans font-semibold text-3xl">
-                <Button size={"max"}>Accedi</Button>
+                <Button size={"max"} onClick={() => router.push('/in')}>Entra</Button>
               </div>
               <div className="bg-gradient-to-b from-slate-300 to bg-slate-400 w-full rounded flex justify-center items-center h-44 font-sans font-semibold text-3xl">
-                <Button size={"max"}>Registrati</Button>
+                <Button size={"max"} onClick={() => router.push('/out')}>Esci</Button>
               </div>
             </div>
           </div>
